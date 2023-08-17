@@ -6,27 +6,36 @@
   <style>
     /* Your updated CSS styles for dark theme and modern styling */
     body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #20232a;
-      color: #ffffff;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column; /* Stack content on small screens */
-      height: 100vh;
-    }
-
-    .sidebar {
-      width: 100vw; /* Occupy full width on small screens */
-      background-color: #282c34;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      box-sizing: border-box;
-    }
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #20232a;
+        color: #ffffff;
+      }
+  
+      .header-bar {
+        background-color: #282c34;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+      }
+  
+      .container {
+        display: flex;
+        flex-direction: column; /* Stack content on small screens */
+        height: 100vh;
+      }
+  
+      .sidebar {
+        width: 100vw; /* Occupy full width on small screens */
+        background-color: #282c34;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
+      }
     .sidebar input {
         flex: 1;
         padding: 10px;
@@ -129,6 +138,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <body>
+    <div class="header-bar">
+        OmegleLite - Chat App
+      </div>
   <div class="container">
     <div class="sidebar">
       <div class="header">Online Users</div>
