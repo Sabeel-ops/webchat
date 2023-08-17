@@ -4,13 +4,13 @@
   <title>Chat App</title>
   <script src="/socket.io/socket.io.js"></script>
   <style>
-    /* Your updated CSS styles */
+    /* Your updated CSS styles for dark theme and modern styling */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      background-color: #20232a;
+      color: #ffffff;
     }
 
     .container {
@@ -21,36 +21,21 @@
 
     .sidebar {
       width: 100%; /* Occupy full width on small screens */
-      background-color: #ffffff;
+      background-color: #282c34;
       padding: 20px;
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       box-sizing: border-box;
-    }
-
-    .chat-area {
-      flex: 1;
-      padding: 20px;
-      border-radius: 20px;
-      background-color: #ffffff;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      box-sizing: border-box;
-    }
-
-    .header {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #333;
     }
     .sidebar input {
         flex: 1;
         padding: 10px;
         border: none;
         border-radius: 20px;
-        background-color: #f8f9fa;
-        color: #333;
+        background-color: #353b45;
+        color: #ffffff;
       }
+  
       .sidebar button {
         padding: 10px 20px;
         background-image: linear-gradient(to right, #fd5f00, #f89923);
@@ -63,12 +48,28 @@
   
       .sidebar button:hover {
         background-image: linear-gradient(to right, #f89923, #fd5f00);
+      }
+
+    .chat-area {
+      flex: 1;
+      padding: 20px;
+      border-radius: 20px;
+      background-color: #282c34;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      box-sizing: border-box;
+    }
+
+    .header {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ffffff;
     }
 
     .user-list {
       list-style: none;
       padding: 0;
-      color: #555;
+      color: #dcdcdc;
     }
 
     .user-list li {
@@ -79,7 +80,7 @@
     .chat-box {
       max-height: 60vh; /* Adjust for smaller screens */
       overflow-y: auto;
-      border: 1px solid #ccc;
+      border: 1px solid #555555;
       padding: 10px;
     }
 
@@ -94,8 +95,8 @@
       padding: 10px;
       border: none;
       border-radius: 20px;
-      background-color: #f8f9fa;
-      color: #333;
+      background-color: #353b45;
+      color: #ffffff;
     }
 
     .message-input button {
