@@ -113,17 +113,17 @@
       background-image: linear-gradient(to right, #f89923, #fd5f00);
     }
 
-    /* Media Queries */
-    @media screen and (min-width: 768px) {
-      /* Adjust layout for tablets and larger screens */
-      .container {
-        flex-direction: row; /* Show sidebar and chat side by side */
+    @media screen and (max-width: 768px) {
+        /* Adjust layout for mobile screens */
+        .container {
+          flex-direction: column-reverse; /* Reverse order: chat area above sidebar */
+        }
+  
+        .sidebar {
+          width: 100%; /* Occupy full width on small screens */
+          margin-top: 20px; /* Add margin to separate chat area and sidebar */
+        }
       }
-
-      .sidebar {
-        width: 30%; /* Restore original width for larger screens */
-      }
-    }
   </style>
 </head>
 <body>
