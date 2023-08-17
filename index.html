@@ -4,11 +4,13 @@
   <title>Chat App</title>
   <script src="/socket.io/socket.io.js"></script>
   <style>
-    /* Your provided CSS styles */
+    /* Your updated CSS styles */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
     }
 
     .container {
@@ -19,26 +21,54 @@
 
     .sidebar {
       width: 100%; /* Occupy full width on small screens */
-      background-color: #f2f2f2;
+      background-color: #ffffff;
       padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       box-sizing: border-box;
     }
 
     .chat-area {
       flex: 1;
       padding: 20px;
+      border-radius: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       box-sizing: border-box;
     }
 
     .header {
-      font-size: 18px;
+      font-size: 24px;
       font-weight: bold;
       margin-bottom: 10px;
+      color: #333;
+    }
+    .sidebar input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        background-color: #f8f9fa;
+        color: #333;
+      }
+      .sidebar button {
+        padding: 10px 20px;
+        background-image: linear-gradient(to right, #fd5f00, #f89923);
+        border: none;
+        border-radius: 20px;
+        color: white;
+        cursor: pointer;
+        transition: background-image 0.3s ease-in-out;
+      }
+  
+      .sidebar button:hover {
+        background-image: linear-gradient(to right, #f89923, #fd5f00);
     }
 
     .user-list {
       list-style: none;
       padding: 0;
+      color: #555;
     }
 
     .user-list li {
@@ -61,11 +91,25 @@
 
     .message-input input {
       flex: 1;
-      padding: 5px;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      background-color: #f8f9fa;
+      color: #333;
     }
 
     .message-input button {
-      padding: 5px 10px;
+      padding: 10px 20px;
+      background-image: linear-gradient(to right, #fd5f00, #f89923);
+      border: none;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+      transition: background-image 0.3s ease-in-out;
+    }
+
+    .message-input button:hover {
+      background-image: linear-gradient(to right, #f89923, #fd5f00);
     }
 
     /* Media Queries */
@@ -80,7 +124,6 @@
       }
     }
   </style>
-
 </head>
 <body>
   <div class="container">
@@ -88,7 +131,7 @@
       <div class="header">Online Users</div>
       <ul class="user-list" id="userList"></ul>
       <input type="text" id="usernameInput" placeholder="Enter your name">
-      <button id="addUserButton">Add User</button> <!-- Added a button to set username -->
+      <button id="addUserButton">Add User</button>
     </div>
     <div class="chat-area">
       <div class="header">Chat</div>
