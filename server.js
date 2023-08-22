@@ -12,8 +12,18 @@ io.on('connection', (socket) => {
   console.log('A user connected');
 
   socket.on('chat message', (data) => {
-    io.emit('chat message', { user: socket.userName, message: data.message });
-  });
+    let modifiedMessage = data.message
+    .replace(/hey/gi, "👋")
+    .replace(/whoa/gi, "🤯")
+    .replace(/like/gi, "❤️")
+    .replace(/lol/gi, "😄")
+    .replace(/react/gi, "⚛️")
+    .replace(/congratulations/gi, "🎉");
+
+    io.emit('chat message', { user: socket.userName, message: modifiedMessage });
+});
+
+
 
   socket.on('set username', (userName) => {
     socket.userName = userName;
