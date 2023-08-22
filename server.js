@@ -13,15 +13,16 @@ io.on('connection', (socket) => {
 
   socket.on('chat message', (data) => {
     let modifiedMessage = data.message
-    .replace(/hey/gi, "👋")
-    .replace(/whoa/gi, "🤯")
-    .replace(/like/gi, "❤️")
-    .replace(/lol/gi, "😄")
-    .replace(/react/gi, "⚛️")
-    .replace(/congratulations/gi, "🎉");
+        .replace(/\bhey\b/gi, "👋")
+        .replace(/\bwhoa\b/gi, "🤯")
+        .replace(/\blike\b/gi, "❤️")
+        .replace(/\blol\b/gi, "😄")
+        .replace(/\breact\b/gi, "⚛️")
+        .replace(/\bcongratulations\b/gi, "🎉");
 
     io.emit('chat message', { user: socket.userName, message: modifiedMessage });
 });
+
 
 
 
