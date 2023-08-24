@@ -12,7 +12,23 @@ io.on('connection', (socket) => {
   console.log('A user connected');
 
   socket.on('chat message', (data) => {
-    let modifiedMessage = data.message
+    const messageContent = data.message;
+
+    if (messageContent.startsWith('/random')) {
+      const randomNumber = Math.floor(Math.random() * 100) + 1;
+      socket.emit('chat message', { user: 'Server', message: `You rolled a random number: ${randomNumber}` });
+    } else if (messageContent.startsWith('/calc')) {
+      const calcExpression = messageContent.substring('/calc'.length).trim();
+      try {
+        const result = eval(calcExpression);
+        socket.emit('chat message', { user: 'Server', message: `Result: ${result}` });
+      } catch (error) {
+        socket.emit('chat message', { user: 'Server', message: 'Invalid calculation' });
+      }
+    } 
+    
+    else {
+      let modifiedMessage = messageContent
         .replace(/\bhey\b/gi, "👋")
         .replace(/\bwhoa\b/gi, "🤯")
         .replace(/\blike\b/gi, "❤️")
@@ -20,11 +36,9 @@ io.on('connection', (socket) => {
         .replace(/\breact\b/gi, "⚛️")
         .replace(/\bcongratulations\b/gi, "🎉");
 
-    io.emit('chat message', { user: socket.userName, message: modifiedMessage });
-});
-
-
-
+      io.emit('chat message', { user: socket.userName, message: modifiedMessage });
+    }
+  });
 
   socket.on('set username', (userName) => {
     socket.userName = userName;
